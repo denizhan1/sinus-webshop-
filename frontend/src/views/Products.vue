@@ -14,9 +14,9 @@
                             class="img-holder"
                             v-bind:style="{ 'background-image': `url(${require('@/assets/hoodie-ocean.png')})`}"
                             >
-                            <span class="price">
-                                <p class="amount">{{product.price}}</p>
-                                <p class="currency">SEK</p>
+                            <span class="product-cost">
+                                <p class="product-price">{{product.price}}</p>
+                                <p class="product-currency">SEK</p>
                             </span>
                             </div>
                     </div>
@@ -89,7 +89,7 @@ computed:{
   }
   .short-desc {
     align-self: flex-start;
-    margin: 0.3rem 0px 0px 2rem;
+    margin: 0.2rem 0px 0px 1rem;
     font-size: 17px;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.6);
@@ -104,7 +104,7 @@ computed:{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
-    .price {
+    .poduct-cost {
       display: flex;
       flex-direction: row;
       background-color: black;
@@ -116,15 +116,15 @@ computed:{
       align-items: center;
       align-self: flex-start;
       margin-bottom: 2rem;
-      .amount {
+      .product-price{
         font-size: 28px;
         font-weight: 700;
       }
-      .currency {
-        font-size: 14px;
-        font-weight: 400;
+      .product-currency {
+        font-size: 13px;
+        font-weight: 370;
         margin-top: -4px;
-        margin-left: 5px;
+        margin-left: 4px;
       }
     }
   }
