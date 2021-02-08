@@ -104,7 +104,7 @@ computed:{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
-    .poduct-cost {
+    .product-cost {
       display: flex;
       flex-direction: row;
       background-color: black;
@@ -122,9 +122,9 @@ computed:{
       }
       .product-currency {
         font-size: 13px;
-        font-weight: 370;
+        font-weight: 400;
         margin-top: -4px;
-        margin-left: 4px;
+        margin-left: 5px;
       }
     }
   }
