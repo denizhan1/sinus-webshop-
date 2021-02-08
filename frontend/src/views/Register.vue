@@ -47,6 +47,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 50%;
+  justify-content: space-around;
 }
 .skate-img {
   width: 100%;

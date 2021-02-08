@@ -3,10 +3,13 @@
         <div class="nav-bar">
             <img src="~@/assets/sinus-logo.svg">
             <div class="right-side">
-                <a href="#">Products</a>
-                <a href="">Register</a>
+                <div class=div>
+
+                    <router-link to="/Products">Products</router-link>
+                <router-link href="/">Register</router-link>
                 <button>hello</button>
                 <button>hello</button>
+                </div>
             </div>
         </div>
     </div>
@@ -25,7 +28,11 @@ img {
 }
 .nav-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+.div{
+    display: flex;
+    justify-content: space-around;
 }
 
 </style>
