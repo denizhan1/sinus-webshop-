@@ -1,39 +1,50 @@
 <template>
  <section class="body">
+      <!-- <Cart/> -->
      <Nav/>
             <main class="main-container">
-                <div class="list-items" v-for="(product,index) in productList" :key="index" >
-                            <div class="sub-header">
-                                <h2 class="item-name">{{product.title}}</h2>
-                                <button class="icon">
-                                    <img src="@/assets/icon-bag-black.svg" alt />
-                                </button>
-                            </div>
-                        <p class="short-desc">{{product.shortDesc}}</p>
-                            <div
-                            class="img-holder"
-                            v-bind:style="{ 'background-image': `url(${require('@/assets/hoodie-ocean.png')})`}"
-                            >
-                            <span class="product-cost">
-                                <p class="product-price">{{product.price}}</p>
-                                <p class="product-currency">SEK</p>
-                            </span>
-                            </div>
-                    </div>
+                    <div class="list-items" v-for="product in getListItems" :key="product.id">
+                                <div class="sub-header">
+                                    <h2 class="item-name">{{product.title}}</h2>
+                                    <button class="icon">
+                                        <img src="@/assets/icon-bag-black.svg" alt />
+                                    </button>
+                                </div>
+                            <p class="short-desc">{{product.shortDesc}}</p>
+                                <div
+                                class="img-holder"
+                                v-bind:style="{ 'background-image': `url(${require('@/assets/' + `${product.imgFile}`)})`}">
+                                <span class="product-cost">
+                                    <p class="product-price">{{product.price}}</p>
+                                    <p class="product-currency">SEK</p>
+                                </span>
+                                </div>
+                               
+                     </div>
             </main>
+           
   </section>
 </template>
 
 <script>
 import Nav from '@/components/Nav.vue'
+// import Cart from '@/components/Cart.vue'
 export default {
     components:{
-        Nav
+        Nav,
+        // Cart
     },
-computed:{
-    productList(){
-        return this.$store.state.productList
-    }
+      data() {
+      return {};
+    },
+    computed: {
+        getListItems() {
+          console.log(this.$store.getters.getListItems)
+          return this.$store.getters.getListItems;
+        }
+      },
+created(){
+  this.$store.dispatch('getProducts')
 }
 }
 </script>

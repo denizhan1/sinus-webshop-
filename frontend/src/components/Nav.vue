@@ -3,13 +3,10 @@
         <div class="nav-bar">
             <img src="~@/assets/sinus-logo.svg">
             <div class="right-side">
-                <div class=div>
-
-                    <router-link to="/Products">Products</router-link>
-                <router-link href="/">Register</router-link>
-                <button>hello</button>
-                <button>hello</button>
-                </div>
+                <router-link style="text-decoration:none;" class="products" to="/Products">Products</router-link>
+                <router-link style="text-decoration:none;" class="register" to="/">Register</router-link>
+                <button  class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button>
+                <router-link to="/cart" class="cart-btn"><img class="cart-img" src="~@/assets/icon-bag-white.svg" ></router-link>
             </div>
         </div>
     </div>
@@ -17,22 +14,81 @@
 
 <script>
 export default {
-    name: "Nav"
+    
 }
 </script>
 
 <style lang="scss" scoped>
+
 img {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
 }
 .nav-bar {
+    margin-left: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-.div{
+.right-side {
+    height: 50px;
+    :visited{
+        color: black;
+    }
+    :link{
+        color: black;
+    }
+    :hover{
+        color: darkgrey;
+    }
+    
     display: flex;
-    justify-content: space-around;
+    text-decoration-line: none;
+    margin: 10px;
 }
-
-</style>
+.profile-btn{
+    margin-left: 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 100px;
+    background-color: lightgray;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor:pointer;
+    .profile-img{
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.cart-btn{
+    margin-left: 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 100px;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor:pointer;
+    .cart-img{
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.products{
+    margin-left: 15px;
+    margin-top: 26px;
+}
+.register{
+    margin-left: 15px;
+    margin-top: 26px;
+}
+</style> 

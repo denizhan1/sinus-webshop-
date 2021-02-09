@@ -1,5 +1,6 @@
 <template>
     <div class="buy-view">
+        <h1>hello buy view</h1>
     </div>
 </template>
 
