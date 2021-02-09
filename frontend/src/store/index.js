@@ -7,11 +7,22 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     productList:[],
+    cart:[],
   },
   mutations: {
       loadProducts(state,data){
           state.productList=data
-      }
+      },
+      pushToCart(state, payload) {
+        const element = state.cart.find(p => p.id === payload.id)
+        if (!element) {
+            payload.quantity = 1
+            state.cart.push(payload)
+        } else {
+            element.quantity += 1
+            state.cart.push(element)
+        }
+    },
   },
   actions: {
       async getProducts(context,payload){
@@ -23,6 +34,9 @@ export default new Vuex.Store({
     getListItems: state => {
         return state.productList
     },
+    getCartItems: state => {
+      return state.cart
+  },
   },
   modules: {
   }

@@ -3,7 +3,7 @@
       <!-- <Cart/> -->
      <Nav/>
             <main class="main-container">
-                    <div class="list-items" v-for="product in getListItems" :key="product.id">
+                    <div class="list-items" v-for="product in getListItems" :key="product.id" @click="moveToCart(item)">
                                 <div class="sub-header">
                                     <h2 class="item-name">{{product.title}}</h2>
                                     <button class="icon">
@@ -30,23 +30,28 @@
 import Nav from '@/components/Nav.vue'
 // import Cart from '@/components/Cart.vue'
 export default {
-    components:{
-        Nav,
-        // Cart
-    },
-      data() {
-      return {};
-    },
-    computed: {
-        getListItems() {
-          console.log(this.$store.getters.getListItems)
-          return this.$store.getters.getListItems;
+        components:{
+            Nav,
+            // Cart
+        },
+          data() {
+          return {};
+        },
+        computed: {
+            getListItems() {
+              // console.log(this.$store.getters.getListItems)
+              return this.$store.getters.getListItems;
+            }
+          },
+        methods:{
+        moveToCart(item){
+          this.$store.commit("pushToCart", item);
         }
       },
-created(){
-  this.$store.dispatch('getProducts')
-}
-}
+      created(){
+      this.$store.dispatch('getProducts')
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

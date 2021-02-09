@@ -2,19 +2,19 @@
   <main class="main-container"> 
       <div class="sub-content modal">
             <ul class="ordered-lists">
-                <li>
+                <li  v-for="(product, index) in cartItems" :key="index">
                     <div class="cart-item">
                         <div class="product-image"
-                            v-bind:style="{ 'background-image': `url(${require('@/assets/hoodie-ocean.png')})`}">   
+                           v-bind:style="{ 'background-image': `url(${require('@/assets/' + `${product.imgFile}`)})`}">   
                         </div>
                         <div class="product-info">
-                            <h2>product-title</h2>
-                            <h5>product-short description</h5>
-                            <p>product-serial-number</p>
+                            <h2>{{product.title}}</h2>
+                            <h5>{{product.shortDesc}}</h5>
+                            <p>{{product.serial}}</p>
 
                         </div>
                         <div class="product-price">
-                            <h5>product-price</h5>
+                            <h5>{{product.price}}</h5>
                         </div>
                     </div>
                 </li>
@@ -39,15 +39,37 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-    name: "Cart"
+    name: "Cart",
+    data(){
+        return{
+            totalSum:0,
+        }
+    },
+    computed: {
+    ...mapGetters({
+      products: "getCartItems",
+    }),
+    cartItems() {
+      let x = [];
+      for (let item of this.products) {
+        let i = x.findIndex((y) => y.id === item.id);
+        if (i < 0) {
+          x.push(item);
+        } else {
+          console.log("no thank you");
+        }
+      }
+      return x;
+    },
+  },
 }
 </script>
 
 <style lang="scss">
  .main-container{
- height: 700px;
- width: 500px;
+
    .sub-content{
      display: flex;
      flex-flow: column;
@@ -55,8 +77,8 @@ export default {
       .cart-item{
           display: flex;
           justify-content: space-around;
-    //  display: grid;
-    //  grid-template-columns: auto auto auto;
+          width: 100%;
+    
      padding: 2em;
         .product-image {
                 height: 2rem;
@@ -81,8 +103,7 @@ export default {
             align-self: center;
             width: 80%;
             
-            border-bottom: 1px solid var(--LightGrey);
-            opacity: .3;
+            
         }
         .cart-total-price{
             display: flex;
@@ -112,19 +133,7 @@ export default {
 
  }
  }
- .modal{
-     position: fixed; /* Stay in place */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-//   width: 100vw; /* Full width */
-//   height: 100vh; /* Full height */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
- }
+ 
 
 
 
