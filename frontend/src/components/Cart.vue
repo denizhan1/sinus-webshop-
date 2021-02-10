@@ -2,7 +2,7 @@
   <main class="main-container"> 
       <div class="sub-content modal">
             <ul class="ordered-lists">
-                <li  v-for="(product, index) in cartItems" :key="index">
+                <li  v-for="(product, index) in cartList" :key="index">
                     <div class="cart-item">
                         <div class="product-image"
                            v-bind:style="{ 'background-image': `url(${require('@/assets/' + `${product.imgFile}`)})`}">   
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+
 export default {
     name: "Cart",
     data(){
@@ -48,21 +48,10 @@ export default {
         }
     },
     computed: {
-    ...mapGetters({
-      products: "getCartItems",
-    }),
-    cartItems() {
-      let x = [];
-      for (let item of this.products) {
-        let i = x.findIndex((y) => y.id === item.id);
-        if (i < 0) {
-          x.push(item);
-        } else {
-          console.log("no thank you");
-        }
-      }
-      return x;
-    },
+                                
+    cartList(){
+        return this.$store.state.cartList
+    }
   },
 }
 </script>

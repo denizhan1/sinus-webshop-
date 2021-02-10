@@ -7,37 +7,45 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     productList:[],
-    cart:[],
+    cartList:[],
+    selectedProduct:null,
   },
   mutations: {
       loadProducts(state,data){
           state.productList=data
       },
-      pushToCart(state, payload) {
-        const element = state.cart.find(p => p.id === payload.id)
-        if (!element) {
-            payload.quantity = 1
-            state.cart.push(payload)
-        } else {
-            element.quantity += 1
-            state.cart.push(element)
-        }
+                               
+    ADD_ITEM(state,object){
+      state.cartList.push(object)
     },
+    // setSelectedProduct(state,product){
+    //   state.selectedProduct=product
+    // }
+
   },
   actions: {
       async getProducts(context,payload){
          const res= await Api.getAllProducts(payload)
           context.commit('loadProducts',res)
-      }
+      },
+      addItem(context,product){
+        context.commit("ADD_ITEM",product)
+      },
+      // setSelectedProduct(context,product){
+      //   context.commit('setSelectedProduct',product)
+      // }
   },
   getters:{
     getListItems: state => {
         return state.productList
     },
-    getCartItems: state => {
-      return state.cart
+  //   getCartItems: state => {
+  //     return state.cart
+  // },
+  cartList:(state)=>state.cartList,
+  // selectedProduct:(state)=>state.selectedProduct
   },
-  },
+  
   modules: {
   }
 })

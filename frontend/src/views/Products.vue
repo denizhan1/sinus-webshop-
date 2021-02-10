@@ -2,8 +2,13 @@
  <section class="body">
       <!-- <Cart/> -->
      <Nav/>
+      <div v-if="showSelectedProduct" >
+                       <ProductView :product="selectedProduct"/>
+                                  
+                                
+                     </div>
             <main class="main-container">
-                    <div class="list-items" v-for="product in getListItems" :key="product.id" @click="moveToCart(item)">
+                    <div class="list-items" v-for="product in getListItems" :key="product.id"   @click="openProduct(product)">
                                 <div class="sub-header">
                                     <h2 class="item-name">{{product.title}}</h2>
                                     <button class="icon">
@@ -11,16 +16,17 @@
                                     </button>
                                 </div>
                             <p class="short-desc">{{product.shortDesc}}</p>
-                                <div
-                                class="img-holder"
-                                v-bind:style="{ 'background-image': `url(${require('@/assets/' + `${product.imgFile}`)})`}">
-                                <span class="product-cost">
-                                    <p class="product-price">{{product.price}}</p>
-                                    <p class="product-currency">SEK</p>
-                                </span>
+                                <div  class="img-holder"
+                                        :style="{'background-image':'url('+ getImage(product) +')'}">
+                                   <span class="product-cost">
+                                      <p class="product-price">{{product.price}}</p>
+                                      <p class="product-currency">SEK</p>
+                                    </span>
                                 </div>
                                
                      </div>
+                    
+                  
             </main>
            
   </section>
@@ -28,25 +34,42 @@
 
 <script>
 import Nav from '@/components/Nav.vue'
+import ProductView from '@/components/ProductView.vue'
+
 // import Cart from '@/components/Cart.vue'
 export default {
+  props:{
+      product:Object
+  },
+ data() { return {
+    
+  
+    selectedProduct: String,
+    showSelectedProduct: false
+  }},
         components:{
             Nav,
             // Cart
+            ProductView,
         },
-          data() {
-          return {};
-        },
+          
         computed: {
             getListItems() {
-              // console.log(this.$store.getters.getListItems)
+             
               return this.$store.getters.getListItems;
-            }
+            },
+            
           },
         methods:{
-        moveToCart(item){
-          this.$store.commit("pushToCart", item);
-        }
+          openProduct(product){
+            this.showSelectedProduct=!this.showSelectedProduct
+            this.selectedProduct=product
+          },
+              getImage(product) {
+              return require(`@/assets/${product.imgFile}`);
+            },
+          
+                                
       },
       created(){
       this.$store.dispatch('getProducts')
