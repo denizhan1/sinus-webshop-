@@ -14,12 +14,10 @@
                                 <h3>{{this.product.shortDesc}}</h3>
                                 <p>{{this.product.longDesc}}</p>
                                 <h6>{{this.product.price}} sek</h6>
-                               <!-- <button @click="addToCart(product)" class="send-btn">
-                                   <p class="text">Take my money</p>
-                               </button> -->
-                               <div id="btn">
+                               
+                               <div id="btn" >
                             <img src="@/assets/icon-bag-white.svg">
-                            <label id="order-label">Take my money</label>
+                            <label id="order-label" @click="addTocart()">Take my money</label>
                         </div>
                                
                        </div>
@@ -40,19 +38,18 @@ export default {
         showSelectedProduct: String
     },
 methods:{
-    addToCart(product){
-        this.$store.dispatch("addItem",product)
-        this.$router.push('/buyview eller makeorder')
-    },
+
     getImage(product){
         return require(`@/assets/${product.imgFile}`);
+    },
+    addTocart(){
+        // console.log(this.$store.state.cartItems);
+        console.log(this.product)
+        this.$store.dispatch("addItem",this.product)
     }
-    // computed:{
-    //      getListItems() {
-    //           // console.log(this.$store.getters.getListItems)
-    //           return this.$store.getters.getListItems;
-    //         },
-    // }
+
+
+   
 }
 }
 </script>

@@ -7,20 +7,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     productList:[],
-    cartList:[],
-    selectedProduct:null,
+    cartItems:[],
+    // selectedProduct:null,
   },
   mutations: {
       loadProducts(state,data){
           state.productList=data
       },
-                               
-    ADD_ITEM(state,object){
-      state.cartList.push(object)
-    },
-    // setSelectedProduct(state,product){
-    //   state.selectedProduct=product
-    // }
+      addItem(state,item){
+        state.cartItems.push(item);
+      }
+                        
 
   },
   actions: {
@@ -28,22 +25,31 @@ export default new Vuex.Store({
          const res= await Api.getAllProducts(payload)
           context.commit('loadProducts',res)
       },
-      addItem(context,product){
-        context.commit("ADD_ITEM",product)
-      },
-      // setSelectedProduct(context,product){
-      //   context.commit('setSelectedProduct',product)
-      // }
+      addItem(context,item){
+        context.commit("addItem",item);
+      }
+    
+     
   },
   getters:{
-    getListItems: state => {
-        return state.productList
-    },
-  //   getCartItems: state => {
-  //     return state.cart
-  // },
-  cartList:(state)=>state.cartList,
-  // selectedProduct:(state)=>state.selectedProduct
+      getListItems: state => {
+          return state.productList
+      },
+      getCartItems: state => {
+          return state.cart
+      },
+      getTotalCartPrice: state => {
+            let sum = 0;
+            state.cartItems.map(item => {
+                sum += item.price
+            })
+
+       return sum
+      }, 
+      totalCartItemCount: state => {
+        return state.cartItems.length
+      },
+  
   },
   
   modules: {

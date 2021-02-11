@@ -9,6 +9,7 @@ import OrderDone from '../views/OrderDone.vue'
 import Products from '../views/Products.vue'
 import Profile from '../views/Profile.vue'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -52,7 +53,8 @@ const routes = [
     path: '/Profile',
     name: 'Profile',
     component: Profile
-  }
+  },
+  
 ]
 
 const router = new VueRouter({

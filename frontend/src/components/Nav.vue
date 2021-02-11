@@ -7,6 +7,15 @@
                 <router-link style="text-decoration:none;" class="register" to="/">Register</router-link>
                 <button  class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button>
                 <router-link to="/cart" class="cart-btn"><img class="cart-img" src="~@/assets/icon-bag-white.svg" ></router-link>
+                <router-link to="/Admin" class="cart-btn"><img class="cart-img" src="~@/assets/icon-bag-white.svg" >
+                            <div class="round-btn">
+                                <div class="cart-icon">
+                                kassa({{orderedItemsInCart}})
+                               </div>
+                            </div>
+                           
+                </router-link>
+
             </div>
         </div>
     </div>
@@ -14,7 +23,12 @@
 
 <script>
 export default {
-    
+
+    computed: {
+    orderedItemsInCart() {
+      return this.$store.getters.totalCartItemCount;
+    },
+  },
 }
 </script>
 

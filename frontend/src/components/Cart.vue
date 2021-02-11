@@ -1,20 +1,21 @@
 <template>
   <main class="main-container"> 
       <div class="sub-content modal">
+          
             <ul class="ordered-lists">
-                <li  v-for="(product, index) in cartList" :key="index">
+                <li v-for="(product,index) in cartItems" :key="index">
                     <div class="cart-item">
-                        <div class="product-image"
-                           v-bind:style="{ 'background-image': `url(${require('@/assets/' + `${product.imgFile}`)})`}">   
+                        <div class="product-image">
+                            <img :src="require(`@/assets/${product.imgFile}`)" alt="" class="image">
+                          
                         </div>
                         <div class="product-info">
                             <h2>{{product.title}}</h2>
                             <h5>{{product.shortDesc}}</h5>
                             <p>{{product.serial}}</p>
-
                         </div>
                         <div class="product-price">
-                            <h5>{{product.price}}</h5>
+                            <h6>{{product.price}}</h6>
                         </div>
                     </div>
                 </li>
@@ -22,8 +23,8 @@
             </ul>
              <hr>
                     <div class="cart-total-price">
-                        <p>Total</p>
-                        <h6>1000 SEK</h6>
+                        <h3 id="total">Total</h3>
+                        <h3 id="total-price">{{ $store.getters.getTotalCartPrice}}</h3>
                     </div>
                     <button class="buy-product">
                     <img src="@/assets/icon-bag-white.svg" alt="" class="btnImage" />
@@ -49,31 +50,38 @@ export default {
     },
     computed: {
                                 
-    cartList(){
-        return this.$store.state.cartList
-    }
+    cartItems(){
+        return this.$store.state.cartItems
+    },
+   
   },
 }
 </script>
 
 <style lang="scss">
  .main-container{
-
-   .sub-content{
+     width: 50%;
+   
+ }
+ .image{
+     width: 40px;
+     height: 40px;
+ }
+ .sub-content{
      display: flex;
      flex-flow: column;
      background-color: white;
       .cart-item{
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           width: 100%;
     
      padding: 2em;
         .product-image {
                 height: 2rem;
                 width: 2rem;
-                background-size: cover;
-                background-position: center;
+               
+                
             }
              .product-info {
                 display: flex;
@@ -111,8 +119,6 @@ export default {
            
             background-color: black;
             border-radius: 140px;
-
-            
             .take{
                 margin-top: 12px;
                 color: white;
@@ -121,6 +127,11 @@ export default {
         }
 
  }
+ #total{
+     margin-left: 40px;
+ }
+ #total-price{
+     margin-right: 80px;
  }
  
 

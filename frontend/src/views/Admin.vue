@@ -1,15 +1,15 @@
 <template>
     <div class="admin">
-        <ProductView/>
+        <Cart/>
     </div>
 </template>
 
 <script>
-import ProductView from '@/components/ProductView.vue'
+import Cart from '@/components/Cart.vue'
 export default {
     name: "Admin",
     components:{
-        ProductView
+      Cart
     }
 }
 </script>
