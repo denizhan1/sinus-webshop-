@@ -12,15 +12,15 @@
                         <div class="product-detail" >
                                <h2>{{this.product.title}}</h2>
                                 <h3>{{this.product.shortDesc}}</h3>
-                                <p>{{this.product.longDesc}}</p>
+                                <p class="long">{{this.product.longDesc}}</p>
                                 <h6>{{this.product.price}} sek</h6>
                                
-                               <div id="btn" >
-                            <img src="@/assets/icon-bag-white.svg">
-                            <label id="order-label" @click="addTocart()">Take my money</label>
-                        </div>
+                            <div id="btn" >
+                                <img src="@/assets/icon-bag-white.svg">
+                                <label id="order-label" @click="addTocart()">Take my money</label>
+                             </div>
                                
-                       </div>
+                        </div>
 
                 </main>
 
@@ -60,17 +60,18 @@ methods:{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 3;
     left: 0;
-    top: 0;
-    width: 50%; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.9); 
+    top: -1;
+    width: 60%; 
+  cursor: pointer;
+   
 }
+
 
 .productview-page{
     background-color: white;
-    border: 2px solid black;
+    border: 1px solid black;
      width: 85%;
     text-align: center;
     padding: 1rem;
@@ -88,7 +89,7 @@ methods:{
 }
 .image-view{
     height: 100%;
-    width: 22rem;
+    width: 20rem;
     align-self: left;
     // margin-top: 1rem;
     border: 1px solid red;
@@ -130,6 +131,9 @@ h2{
     padding: 12px;
     img {
         margin-right: 8px;
+    }
+    #order-label{
+        color: white;
     }
 }
 

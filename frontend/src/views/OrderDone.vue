@@ -1,5 +1,6 @@
 <template>
     <div class="order-done">
+        <h2>Thank you for visting us!</h2>
     </div>
 </template>
 

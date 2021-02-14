@@ -1,2 +1,15 @@
+{"email":"mm@gmail.com","name":"mm","role":"customer","password":"$2a$10$XmCmoXrOuklD7cSgKh/RXe8edLTzWtcluq4iLex/r6Y.h/cs8f1Oe","orderHistory":[],"_id":"1n69n0udizkMLLh2"}
+{"email":"ff@gmail.com","name":"ff","role":"customer","password":"$2a$10$PgSLz9HnLW06Dy0RaFttEeQ2CVO2b64.JS7z/Gu79aPnWrA2OvrhW","orderHistory":["m8hcXp8Sr0Kuvg6c"],"_id":"FKtw0UEXoGPqMCpT"}
+{"email":"yes","name":"yes@gmail.com","role":"customer","password":"$2a$10$yOZPeukZuEBWpzUeKQFrceW.LjJC.ENdfGItPnW/Vt9eGGIOgN4m6","orderHistory":[],"_id":"MffLE9F62S4OoV82"}
+{"email":"dd@yahoo.com","name":"dd","role":"customer","password":"$2a$10$/URBwwg3t2AeTyj9hOsSDeMpeeXM0adsFqueOPDVTR2hcVaCXNs/u","orderHistory":[],"_id":"PVAkqQPoesq1EW8Q"}
+{"email":"yy@gmail.com","name":"yy","role":"customer","password":"$2a$10$AhjPAS7oVtESnTxsb2uwU.uNtC.0sp3Rccj7oHndMwqncCC6nubai","orderHistory":[],"_id":"Y53khVAaR4u15Qmi"}
+{"name":"shit","role":"customer","password":"$2a$10$zx3aLlUQdqmWu3.qbe1UbOArAbRsqI4Lu8WydByUuxL1fNGqTI4S.","orderHistory":[],"_id":"afO0nPto7uDMoP5i"}
 {"email":"admin@example.com","name":"Johan Kivi","role":"admin","adress":{"street":"Tokitokvägen 3","zip":"123 45","city":"Tokberga"},"payment":{"cardOwner":"Johan Kivi","cardNumber":"1234 5678 9101 1121","validUntil":"10 / 23","cvv":"123"},"ordersHistory":[],"password":"$2a$10$ifsOdy5aqpPCpt6hZTBYU.1v3RfOKSKJQZDeENDL07ZZesVKhVcqm","_id":"b0BtBcZxyg5j3mpE"}
+{"email":"no@gmail.com","name":"no","role":"customer","password":"$2a$10$29zTerjpJXou5GdG/x90Y.xGeZkJK7.7jh.tYMwYzRlkFaWVxqGz6","orderHistory":[],"_id":"fsdBldglw2Z3NVfC"}
 {"email":"customer@example.com","name":"David Lundholm","role":"customer","adress":{"street":"Tokitokvägen 4","zip":"123 46","city":"Tokbergaskogen"},"payment":{"cardOwner":"Johan Kivi","cardNumber":"1234 5678 9101 1121","validUntil":"10 / 23","cvv":"123"},"ordersHistory":[],"password":"$2a$10$lCTtZcEiZ.3Ex3aezEnqy.q1SrGFDFEA55WbGQvMtd0vaojf5yhPa","_id":"hUFYqo2XmKaTpBRN"}
+{"email":"deniz@gmail.com","name":"deniz","role":"customer","password":"$2a$10$9yBEfHaZjPss6Pf3fh8dluuOvOwKFuzMfVAyPg5Q0DOs/G1ffYjL2","orderHistory":[],"_id":"jqkGpZbUnMCCcp4u"}
+{"name":"miss","role":"customer","password":"$2a$10$Z1R4jfaepCovqzQ4yBSkOu6qohDrEmZChuOLt5abm5N1DEX8wyhTO","orderHistory":[],"_id":"rmeAFxyfbtuGDB3M"}
+{"email":"sala@gmail.com","name":"sala","role":"customer","password":"$2a$10$f9lK0RFaVyY1ZdFoQAK7YOuw6CKr2r9rx2Affn3MV0odcL5G9.Rpy","orderHistory":[],"_id":"rqYOTtRn9zBTxjTB"}
+{"email":"haha@gmail.com","name":"haha","role":"customer","password":"$2a$10$tfZDhqFDRRfyg469Vst.zur/q.mYmCjWD3s/08NN3VCFlfphZ7wQS","orderHistory":[],"_id":"xM5Y3m8Tf7F9OCKR"}
+{"name":"aa","role":"customer","password":"$2a$10$NTWbhWt7iEgFWrkC5O7Zye7JYNzHN2SGSrd3/oP9WoS5BeqBvPcg6","orderHistory":[],"_id":"yWrxLgbKRKs9cHzO"}
+{"name":"mr","role":"customer","password":"$2a$10$1srzQIPSi3xp919zVuLiHOrRHkaSHKLKe.QUYyvauF84u0t.vAzJS","orderHistory":[],"_id":"z5B5ZvkEjCVUKF50"}

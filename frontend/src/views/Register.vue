@@ -1,111 +1,204 @@
 <template>
-  <div class="register">
-    <div class="register-sub">
-    <Nav />
-    <div class="skate-img">
-      <h2 class="img-text">Join the rolling family!</h2>
-    </div>
-    <div class="under">
-      <div class="text">
-        <h3 class="title-text">Cowabunga</h3>
-        <p class="text-first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore fuga quasi nam, expedita architecto dolor est magni sequi doloribus dignissimos autem laboriosam corrupti, corporis voluptatem possimus ea quos fugiat quidem.</p><br>
-        <p class="text-seccond">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore fuga quasi nam, expedita architecto dolor est magni sequi doloribus dignissimos autem laboriosam corrupti, corporis voluptatem possimus ea quos fugiat quidem.</p>
-      </div>
-      <form>
-        <h3 class="reg-title">Register</h3>
-        <label class="reg" for="fname">Name:</label><br>
-        <input class="register-input" type="text" id="fname" name="fname"><br>
-        <label class="reg" for="lname">Email:</label><br>
-        <input class="register-input" type="text" id="lname" name="lname">
-        <label class="reg" for="lname">Password:</label><br>
-        <input class="register-input" type="text" id="lname" name="lname">
-      </form>
-    </div>
-    </div>
-  </div>
+  
+    <main id="register" class="grid-container">
+      <Nav />
+        <section class="hero col-6">
+            <h1>Join the rolling family!</h1>
+        </section>
+        <section class="text-side">
+            <h1 class="text-side">Cowabunga</h1>
+            <p class="first-column">Skate ipsum dolor sit amet, rip grip hip grab 540 pivot nose Tracker. Gnar bucket Skateboard Shuffle casper slide 180 boneless layback hardware nosebone.</p>
+              <br>
+            <p class="seccond-column">Vans Calfornia Daze rock and roll chicken wing pogo transfer. Powerslide pivot slam Sidewalk Surfer durometer. Deck full-cab gap Old Ghosts ho-ho. Invert melancholy feeble rocket air. Hanger rock and roll g-turn ledge. 50-50 Kevin Harris boardslide street Mark Gonzales. Air pool hang-up fakie out Randy Ruiz. Steps nose bump powerslide axle set. Future Primitive Japan air snake steps camel back. Face plant crailtap rail slide half-cab. Rail regular footed flypaper drop in. Casper slide speed wobbles indy grab ollie hole. </p>
+        </section>
+        <section class="reg-side">
+         <h1 class="reg-side">Register</h1>
+        <form class="reg-side">
+            <label >
+                Name
+                <input type="text" v-model="name" />
+            </label>
+            <label class="col-4">
+                Email
+                <input type="email" v-model="email" />
+            </label>
+            <label class="col-4">
+                Password
+                <input type="password" v-model="password" />
+            </label>
+            <label class="col-4">
+                repeatPassword
+                <input type="password" v-model="repeatPassword" />
+            </label>
+            
+            <h2>Adress</h2>
+            <label class="col-4">
+                Street
+                <input type="text" v-model="street" />
+            </label>
+                    <label class="zip-code">
+                Zip Code
+                <input type="text" v-model="zip" />
+            </label>
+                    <label class="city">
+                City
+                <input type="text" v-model="city" />
+            </label> 
+            <footer class="col-4">
+                <a type="button" href="#" class="btn" @click=" sendRegistration">Register!</a>
+            </footer>
+         </form>
+         </section>
+    </main>
 </template>
-
 <script>
-import Nav from '@/components/Nav.vue'
-// @ is an alias to /src
+import Nav from '../components/Nav.vue'
 export default {
-  name: 'Register',
-  components: {
-    Nav
-  }
+  components: { Nav },
+    name: 'Register',
+      data(){
+          return{
+            name:'',
+            email:'',
+            password:'',
+            repeatPassword:'',
+            street:'',
+            zip: '',
+            city:''
+          }
+        
+        },
+      
+      methods:{
+        // sendRegistration(){
+        //   const user={
+        //       name:this.name,
+        //     email:this.email,
+        //     password:this.password,
+        //     repeatPassword:this.repeatPassword
+           
+
+        //   }
+        //   console.log(user);
+        //   this.$store.dispatch('registerToSinus',user)
+        // }
+       async  sendRegistration(){
+         const user={
+              name:this.name,
+            email:this.email,
+            password:this.password,
+            repeatPassword:this.repeatPassword
+         }
+          
+            user.street=this.street
+            user.zip=this.zip
+            user.city=this.city
+        
+         await this.$store.dispatch('registerToSinus',user)
+        //  this.$router.push('/products')
+
+        }
+      }
+ 
 }
 </script>
+<style lang="scss">
+#register {
+    padding: 0 0 3rem 0;
+    cursor: pointer;
 
-<style lang="scss" scoped>
-*{
-  font-size: 15px;
-  font-family: 'Montserrat', sans-serif;
-  }
-.register {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+    .hero {
+        background: url('../assets/skate-hero-1.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 30rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 2rem rgba(0,0,0,.2);
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 1rem rgba(0,0,0,1);
+        }
+    }
 }
-.register-sub {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
+.grid-container{
+  
+  margin-left: 20rem;
+  padding-left: 20rem;
+  grid-column: auto/span 6;
+  width: 80rem;
   
 }
-.skate-img {
+.reg-side{
+  width: 50%;
   display: flex;
-  width: 100%;
-  height: 500px;
-  background-image: url("~@/assets/skate-hero-1.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-.under {
-  display: flex;
-}
-.title-text{
-  margin-bottom: 10px;
-  display: flex;
-  font-size: 17px;
-  justify-items: flex-start;
-}
-.text-first{
-  font-weight: bold;
+  justify-content:flex-end;
+  flex-direction: column;
+  //align-items: flex-end;
+  margin-left: 5rem;
+  margin-top: 2rem;
   text-align: left;
-  margin-right: 20px;
+  
 }
-.text-seccond{
-  text-align: left;
-  margin-right: 20px;
-}
-.img-text{
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-  color: whitesmoke;
+.text-side {
+ 
+  margin-top: 2rem;
+  width: 50%;
   font-size: 20px;
-}
-.reg{
-  color: gray;
-  margin-top: 5px;
-  display: flex;
-  justify-items: flex-start;
-  float: left;
-  font-size: 13px;
-}
-.register-input{
-  float:left;
-  font-size: 15px;
-  text-align: center;
-  height: 30px;
-  width: 200px;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-  transition: background .4s;
-}
-.reg-title{
+  justify-content:center;
+ 
+  float: left;
   text-align: left;
 }
+.first-column{
+  font-weight: bold;
+  float: left;
+}
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+form label input, form label textarea {
+    border: 1px solid rgba(0,0,0,.6);
+    font-size: 1.2rem;
+    resize: none;
+  
+    appearance: none;
+    background: none;
+    padding: .5rem;
+    width: 100%;
+   
+    box-sizing: border-box;
+    border-radius: .25rem;
+ }
+.btn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: .75rem 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #eee;
+    border-radius: .25rem;
+    background: rgba(0,0,0,.8);
+    float: left;
+    margin-top: 1rem;
+}
+
+label{
+  font-size: 0.8rem;
+  color: rgba(99, 98, 98, 0.6);  
+  margin-top: 4px;
+}
+
+
+
 </style>

@@ -85,6 +85,7 @@ export default {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: auto auto auto;
+    cursor: pointer;
    
 }
 .list-items {
