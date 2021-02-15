@@ -1,9 +1,11 @@
+// get product api
 export async function getAllProducts()
 {
     const req= await fetch('http://localhost:5000/api/products/')
    const data= await req.json()
     return data
 }
+// user login api
 export async function userLogin(user)
 {
     let result= await fetch('http://localhost:5000/api/auth/',
@@ -19,6 +21,8 @@ export async function userLogin(user)
     let data= await result.json()
     return data;
 }
+
+// register user api
 export async function userToRegisterd(user)
 {
     let result= await fetch('http://localhost:5000/api/register/',
@@ -34,7 +38,7 @@ export async function userToRegisterd(user)
     console.log(data)
 
 }
-
+// submit order api
 export async function submitOrder(Order,token='') {
      let a = [];
     Order.forEach(element => {
@@ -61,5 +65,21 @@ export async function submitOrder(Order,token='') {
         let y = await result.json()
         console.log(y);
       
+}
+// get order api
+export async function getUserOrders(token){
+    let result = await fetch('http://localhost:5000/api/orders/',
+        {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }
+
+        });
+    let data = await result.json()
+    return data
+
 }
     

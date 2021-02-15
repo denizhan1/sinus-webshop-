@@ -8,9 +8,14 @@
 {"email":"no@gmail.com","name":"no","role":"customer","password":"$2a$10$29zTerjpJXou5GdG/x90Y.xGeZkJK7.7jh.tYMwYzRlkFaWVxqGz6","orderHistory":[],"_id":"fsdBldglw2Z3NVfC"}
 {"email":"customer@example.com","name":"David Lundholm","role":"customer","adress":{"street":"Tokitokvägen 4","zip":"123 46","city":"Tokbergaskogen"},"payment":{"cardOwner":"Johan Kivi","cardNumber":"1234 5678 9101 1121","validUntil":"10 / 23","cvv":"123"},"ordersHistory":[],"password":"$2a$10$lCTtZcEiZ.3Ex3aezEnqy.q1SrGFDFEA55WbGQvMtd0vaojf5yhPa","_id":"hUFYqo2XmKaTpBRN"}
 {"email":"deniz@gmail.com","name":"deniz","role":"customer","password":"$2a$10$9yBEfHaZjPss6Pf3fh8dluuOvOwKFuzMfVAyPg5Q0DOs/G1ffYjL2","orderHistory":[],"_id":"jqkGpZbUnMCCcp4u"}
+{"email":"meles@kth.se","name":"meles","role":"customer","password":"$2a$10$chyC1HZPzyrf/wIWxoXJJ.TscBHIuT4QJYAdfMcpcOuOvP4CPD2v6","orderHistory":[],"_id":"jrm9R6kJKTUUz3tg"}
 {"name":"miss","role":"customer","password":"$2a$10$Z1R4jfaepCovqzQ4yBSkOu6qohDrEmZChuOLt5abm5N1DEX8wyhTO","orderHistory":[],"_id":"rmeAFxyfbtuGDB3M"}
 {"email":"sala@gmail.com","name":"sala","role":"customer","password":"$2a$10$f9lK0RFaVyY1ZdFoQAK7YOuw6CKr2r9rx2Affn3MV0odcL5G9.Rpy","orderHistory":[],"_id":"rqYOTtRn9zBTxjTB"}
 {"email":"haha@gmail.com","name":"haha","role":"customer","password":"$2a$10$tfZDhqFDRRfyg469Vst.zur/q.mYmCjWD3s/08NN3VCFlfphZ7wQS","orderHistory":[],"_id":"xM5Y3m8Tf7F9OCKR"}
 {"name":"aa","role":"customer","password":"$2a$10$NTWbhWt7iEgFWrkC5O7Zye7JYNzHN2SGSrd3/oP9WoS5BeqBvPcg6","orderHistory":[],"_id":"yWrxLgbKRKs9cHzO"}
 {"name":"mr","role":"customer","password":"$2a$10$1srzQIPSi3xp919zVuLiHOrRHkaSHKLKe.QUYyvauF84u0t.vAzJS","orderHistory":[],"_id":"z5B5ZvkEjCVUKF50"}
-{"email":"meles@kth.se","name":"meles","role":"customer","password":"$2a$10$chyC1HZPzyrf/wIWxoXJJ.TscBHIuT4QJYAdfMcpcOuOvP4CPD2v6","orderHistory":[],"_id":"jrm9R6kJKTUUz3tg"}
+{"email":"denizhan@gmail.com","name":"denizhan","role":"customer","password":"$2a$10$xXMenQyXV4B2SfG5yZVbY.IG4XO.rxUB0Z46rLFXrIV2q.b.phsMy","orderHistory":[],"_id":"D8RUYrQDbW1zqyoz"}
+{"email":"meles@kth.se","name":"meles","role":"customer","password":"$2a$10$chyC1HZPzyrf/wIWxoXJJ.TscBHIuT4QJYAdfMcpcOuOvP4CPD2v6","orderHistory":["8FndS3Vt57HRr7IZ"],"_id":"jrm9R6kJKTUUz3tg"}
+{"email":"ww@gmail.com","name":"ww","role":"customer","password":"$2a$10$xvlt6Vr13qDUbHISOigWh.2jg6IS70WbpzWVuOCXi6gKOwZnU4frW","orderHistory":[],"_id":"BoFcVtI89Gf5CAmf"}
+{"email":"des@kth.se","name":"des","adress":{"street":"centralvägen","zipcode":"","city":"stockholm","cardOwner":"","cardNumber":"","validUntil":"","cvv":"","zip":"1234"},"role":"customer","password":"$2a$10$tk8oGyA/CjOGpnKD92J/KuBk.97o2YaHfN1zjcowBiXWRCJEh/Wdu","orderHistory":[],"_id":"8ulTKcoOXMyjakb9"}
+{"email":"cust@sinus.com","name":"customer","adress":{"street":"studentbacken 21","zipcode":"","city":"Gärdet","cardOwner":"customer","cardNumber":"4512345","validUntil":"","cvv":"","zip":"12345","validUntill":"2020-02-28"},"role":"customer","password":"$2a$10$TKQPY2CaEPXesgKxtFqTXOaC408H1FcC9jsqsr4USk5ieP9yto8n6","orderHistory":[],"_id":"j9WWY54bwUa9zF3D"}

@@ -23,9 +23,10 @@
                 <div class="border-seccond" v-if="$store.state.loggedInUser">
                     <h3 class="your-details">Your Details</h3>
                     <label class="inputs" for="">Your name</label>
-                    <input class="details" type="text"  v-model="name">
+                    <input class="details" type="text"  v-model="user.name">
+                   
                     <label class="inputs"  for="">Street</label>
-                    <input class="details" type="text" v-model="street">
+                    <input class="details" type="text" v-model="user.adress.street">
                     
                     <div class="left">
                     <label class="lable-left"  for="">ZIP Code</label> 
@@ -33,23 +34,23 @@
                 
                     </div>
                     <div class="right">
-                    <input class="input-details" type="text" v-model="zipcode">
-                    <input class="input-details" type="text" v-model="city">
+                    <input class="input-details" type="text" v-model="user.adress.zipcode">
+                    <input class="input-details" type="text" v-model="user.adress.city">
                     </div>
 
                     <h3 class="payment-text">Payment</h3>
                     <label class="inputs"  for="">Card Owner</label>
-                    <input class="details" type="text"  v-model="cardOwner">
+                    <input class="details" type="text"  v-model="user.adress.cardOwner">
                     <label class="inputs"  for="">Card Number</label>
-                    <input class="details" type="text"  v-model="cardNumber">
+                    <input class="details" type="text"  v-model="user.adress.cardNumber">
                 
                     <div class="left">
                     <label class="lable-left"  for="">Valid untill</label> 
                     <label class="lable-right"  for="">CVV</label>
                     </div>
                     <div class="right">
-                    <input class="input-details" type="text"  v-model="validUntil">
-                    <input class="input-details" type="password" v-model="cvv">
+                    <input class="input-details" type="text"  v-model="user.adress.validUntil">
+                    <input class="input-details" type="password" v-model="user.adress.cvv">
                     </div>
                 </div>
 
@@ -97,30 +98,31 @@ import Nav from '../components/Nav.vue'
 export default {
     name: "MakeOrder",
     components: {  Nav },
-
-     data:()=>({
-         name:'',
-        street:'',
-        zipcode:'',
-        city:'',
-        cardOwner:'',
-        cardNumber:'',
-        validUntil:'',
-        cvv:''
-  }),
+    //  data(){
+    //      return{
+    //     name:'',
+    //     street:'',
+    //     zipcode:'',
+    //     city:'',
+    //     cardOwner:'',
+    //     cardNumber:'',
+    //     validUntil:'',
+    //     cvv:''
+    //      }
+    //  },
 
     computed: {                          
         cartItems(){
             return this.$store.state.cartItems
         },
         user(){
-            return this.$store.state.currentUser.user
+            return this.$store.state.currentUser
         }
     
     },
     methods:{
         async sendOrder(){
-            await this.$store.dispatch('postOrder');
+            await this.$store.dispatch('postOrder',this.user);
              this.$router.push('/orderDone')
         }
     }

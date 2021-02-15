@@ -11,7 +11,7 @@ export default new Vuex.Store({
     productList:[],
     cartItems:[],
     orders:[],
-    //more update
+    userOrderedList:[],
     token:'',
     currentUser:null,
     loggedInUser:false
@@ -33,6 +33,10 @@ export default new Vuex.Store({
       addOrder(state,order){
         state.orders.push(order);
 
+      },
+      setUserOrder(state,payload){
+        state.userOrderedList=payload;
+        
       }
 
      
@@ -51,7 +55,7 @@ export default new Vuex.Store({
         context.commit('loginAuthenticated',res)
 
       },
-      //more update
+     
       async postOrder(context){
         console.log(this.state.token)
         console.log(this.state.cartItems)
@@ -59,6 +63,13 @@ export default new Vuex.Store({
         let result= await Api.submitOrder(this.state.cartItems,this.state.token)
          context.commit('addOrder',result)
         
+      },
+      // user order history
+      async showUserOrder(context){
+        const res= await Api.getUserOrders(this.state.token)
+        console.log(this.state.token)
+        context.commit('setUserOrder',res)
+
       },
       
       async registerToSinus(_,user){
@@ -92,14 +103,7 @@ export default new Vuex.Store({
       totalCartItemCount: state => {
         return state.cartItems.length
       },
-    //   isLoggedIn: state => {
-    //     let loggedInBool = state.token !== ''
-    //         && state.currentUser !== ''
-    //         && state.token.length > 0
-    //         && state.currentUser.length > 0;
-    //     return loggedInBool
-    // },
-  
+   
   },
   
   modules: {

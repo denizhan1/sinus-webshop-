@@ -16,34 +16,47 @@
         <form class="reg-side">
             <label >
                 Name
-                <input type="text" v-model="name" />
+                <input type="text" v-model="user.name" />
             </label>
             <label class="col-4">
                 Email
-                <input type="email" v-model="email" />
+                <input type="email" v-model="user.email" />
             </label>
             <label class="col-4">
                 Password
-                <input type="password" v-model="password" />
+                <input type="password" v-model="user.password" />
             </label>
             <label class="col-4">
                 repeatPassword
-                <input type="password" v-model="repeatPassword" />
+                <input type="password" v-model="user.repeatPassword" />
             </label>
             
             <h2>Adress</h2>
             <label class="col-4">
                 Street
-                <input type="text" v-model="street" />
+                <input type="text" v-model="user.adress.street" />
             </label>
                     <label class="zip-code">
                 Zip Code
-                <input type="text" v-model="zip" />
+                <input type="text" v-model="user.adress.zip" />
             </label>
                     <label class="city">
                 City
-                <input type="text" v-model="city" />
+                <input type="text" v-model="user.adress.city" />
             </label> 
+            <h3 class="payment-text">Payment</h3>
+                    <label class="inputs"  for="" >Card Owner</label>
+                    <input class="details" type="text" v-model="user.adress.cardOwner">
+                    <label class="inputs"  for="">Card Number</label>
+                    <input class="details" type="text" v-model="user.adress.cardNumber"> 
+                    <div class="left">
+                    <label class="lable-left"  for="">Valid untill</label> 
+                    <label class="lable-right"  for="">CVV</label>
+                    </div>
+                    <div class="right">
+                    <input class="input-details" type="text"  v-model="user.adress.validUntill">
+                    <input class="input-details" type="password"   v-model="user.adress.cvv">
+                    </div>
             <footer class="col-4">
                 <a type="button" href="#" class="btn" @click=" sendRegistration">Register!</a>
             </footer>
@@ -56,45 +69,30 @@ import Nav from '../components/Nav.vue'
 export default {
   components: { Nav },
     name: 'Register',
-      data(){
-          return{
+
+      data:()=>({
+        user:{
             name:'',
             email:'',
             password:'',
-            repeatPassword:'',
+            adress:{
             street:'',
-            zip: '',
-            city:''
+            zipcode:'',
+            city:'',
+            cardOwner:'',
+            cardNumber:'',
+            validUntil:'',
+            cvv:''
           }
-        
-        },
+
+        } 
+  }),
       
       methods:{
-        // sendRegistration(){
-        //   const user={
-        //       name:this.name,
-        //     email:this.email,
-        //     password:this.password,
-        //     repeatPassword:this.repeatPassword
-           
-
-        //   }
-        //   console.log(user);
-        //   this.$store.dispatch('registerToSinus',user)
-        // }
-       async  sendRegistration(){
-         const user={
-              name:this.name,
-            email:this.email,
-            password:this.password,
-            repeatPassword:this.repeatPassword
-         }
-          
-            user.street=this.street
-            user.zip=this.zip
-            user.city=this.city
         
-         await this.$store.dispatch('registerToSinus',user)
+       async  sendRegistration()
+       {
+         await this.$store.dispatch('registerToSinus',this.user)
         //  this.$router.push('/products')
 
         }

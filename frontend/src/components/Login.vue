@@ -34,6 +34,7 @@ export default {
       //  console.log( this.$store.dispatch('loginUser',this.user))
       console.log(this.user)
       this.$store.dispatch('loginUser',this.user);
+      this.$router.push('/profile')
       // localStorage.setItem('token',)
       
     }
