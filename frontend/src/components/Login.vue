@@ -2,13 +2,13 @@
     <div class="login">
         <div id="login-inputs" >
             <label class="login-lable" for="userName"  >Email</label>
-            <input class="login-input" type="email" required v-model="user.email">
+            <input class="login-input" type="email" required  placeholder=""  v-model="user.email">
             <label class="login-lable" for="password">Password</label>
-            <input class="login-input" type="password"  required v-model="user.password">
-            <router-link style="text-decoration:none;"  to="/profile"><button class="login-btn" @click="submitLogin">Login </button></router-link>
+            <input class="login-input" type="password"  required placeholder=""  v-model="user.password">
+            <button class="login-btn" @click="submitLogin">Login </button>
 
         </div>
-
+  
 
     </div>
 </template>
@@ -23,12 +23,19 @@ export default {
       password:''
     }
   }),
+  // computed:{
+  //    signedIn() {
+  //     return this.$store.state.loggedInUser;
+  //   },
+  // },
  
   methods:{
      async submitLogin(){
-       console.log( this.$store.dispatch('loginUser',this.user))
+      //  console.log( this.$store.dispatch('loginUser',this.user))
+      console.log(this.user)
       this.$store.dispatch('loginUser',this.user);
-       this.$router.push('/products')
+      // localStorage.setItem('token',)
+      
     }
    
   }

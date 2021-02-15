@@ -13,8 +13,13 @@
 
 
 
-
-                <button   @click="showProfile" class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button>
+                <div v-if="!userIsLoggedIn">
+                     <button   @click="showProfile" class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button>
+                </div>
+                <div v-else>
+                    <p>{{userIsLoggedIn.loggedInUser}}</p>
+                </div>
+               
                 <Login v-if="showP"/>
                
                <div class="icon">
@@ -48,6 +53,9 @@ export default {
         orderedItemsInCart() {
             return this.$store.getters.totalCartItemCount;
         },
+        userIsLoggedIn(){
+            return this.$store.state.loggedInUser
+        }
   },
     methods: {
         showProfile() {

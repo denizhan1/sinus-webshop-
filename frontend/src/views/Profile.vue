@@ -1,15 +1,15 @@
 
 <template>
-  <div>
-      <!-- <Login/> -->
+  <div >
+      <Login/>
   </div>
 </template>
 
 <script>
-// import Login from '@/components/Login.vue'
+import Login from '@/components/Login.vue'
 export default {
     name:'Profile',
-    // components:{Login}
+    components:{Login}
 
 }
 </script>
