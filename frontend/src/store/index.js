@@ -11,7 +11,7 @@ export default new Vuex.Store({
     productList:[],
     cartItems:[],
     orders:[],
-    userOrderedList:[],
+    userOrderedList:{},
     token:'',
     currentUser:null,
     loggedInUser:false
@@ -66,9 +66,11 @@ export default new Vuex.Store({
       },
       // user order history
       async showUserOrder(context){
+
         const res= await Api.getUserOrders(this.state.token)
         console.log(this.state.token)
         context.commit('setUserOrder',res)
+        console.log(res)
 
       },
       

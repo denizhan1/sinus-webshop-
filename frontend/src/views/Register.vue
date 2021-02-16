@@ -44,19 +44,7 @@
                 City
                 <input type="text" v-model="user.adress.city" />
             </label> 
-            <h3 class="payment-text">Payment</h3>
-                    <label class="inputs"  for="" >Card Owner</label>
-                    <input class="details" type="text" v-model="user.adress.cardOwner">
-                    <label class="inputs"  for="">Card Number</label>
-                    <input class="details" type="text" v-model="user.adress.cardNumber"> 
-                    <div class="left">
-                    <label class="lable-left"  for="">Valid untill</label> 
-                    <label class="lable-right"  for="">CVV</label>
-                    </div>
-                    <div class="right">
-                    <input class="input-details" type="text"  v-model="user.adress.validUntill">
-                    <input class="input-details" type="password"   v-model="user.adress.cvv">
-                    </div>
+            
             <footer class="col-4">
                 <a type="button" href="#" class="btn" @click=" sendRegistration">Register!</a>
             </footer>

@@ -15,9 +15,9 @@
                                 <p class="long">{{this.product.longDesc}}</p>
                                 <h6>{{this.product.price}} sek</h6>
                                
-                            <div id="btn" >
+                            <div id="btn"  @click="addTocart()" >
                                 <img src="@/assets/icon-bag-white.svg">
-                                <label id="order-label" @click="addTocart()">Take my money</label>
+                                <label id="order-label" >Take my money</label>
                              </div>
                                
                         </div>
@@ -70,7 +70,7 @@ methods:{
 
 
 .productview-page{
-    background-color: white;
+    background-color: rgb(199, 194, 194);
     border: 1px solid black;
      width: 85%;
     text-align: center;
@@ -82,7 +82,8 @@ methods:{
 }
 .product-detail{
     text-align: left;
-    
+        background-color: rgb(199, 194, 194);
+
     padding: 0.5rem;
     min-width: 250px;
    
@@ -124,16 +125,18 @@ h2{
     height: 60px;
     width: 210px;
     background-color: black;
-    border-radius: 50px;
+    border-radius: 0.25rem;
     color: white;
     margin-left: 20%;
     margin-top: 35px;
     padding: 12px;
     img {
         margin-right: 8px;
+        margin-top: 2px;
     }
     #order-label{
         color: white;
+        cursor: pointer;
     }
 }
 

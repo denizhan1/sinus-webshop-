@@ -1,23 +1,18 @@
 <template>
 <div id="app" class="Nav">
-    <nav>
+    <nav class="navigation">
 
         <div class="nav-bar">
              <img class="logo" src="~@/assets/sinus-logo.svg">
             <div class="right-side">
-                <router-link style="text-decoration:none;" class="products" to="/Products">Products</router-link>
-                <router-link style="text-decoration:none;" class="register" to="./">Register</router-link>
+                <router-link style="text-decoration:none;" class="products" to="/">Products</router-link>
+                <!-- <router-link style="text-decoration:none;" class="register" to="./Register">Register</router-link> -->
                 
-                <!-- <router-link class="account" to="/account" v-if="$store.state.loggedInUser">My Account</router-link>
-                <button v-else  @click="showProfile" class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button> -->
-
-
-
                 <div v-if="!userIsLoggedIn">
                      <button   @click="showProfile" class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button>
                 </div>
                 <div v-else>
-                    <p>{{this.userIsLoggedIn.name}}</p>
+                    <p  @click="goToProfile"  class="user-name">{{this.userIsLoggedIn.name}}</p>
                 </div>
                
                 <Login v-if="showP"/>
@@ -66,7 +61,12 @@ export default {
             this.showC = !this.showC
         },
 
+         goToProfile(){
+        this.$router.push('/Profile')
+    }
+
     },
+   
 }
 </script>
 
@@ -80,7 +80,7 @@ img {
     margin-left: 10px;
     display: flex;
     justify-content: space-between;
-   
+   cursor: pointer;
 }
 .right-side {
     height: 50px;
@@ -97,6 +97,7 @@ img {
     display: flex;
     text-decoration-line: none;
     margin: 10px;
+    gap: 10px;
 }
 .profile-btn{
     margin-left: 10px;
@@ -152,9 +153,16 @@ img {
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
     border-radius: 50%;
     margin-right: 10px;
+    z-index: 5px;
 }
 .icon{
     display: flex;
     flex-direction: row;
+}
+.navigation{
+    background-color: #E5E5E5;
+}
+.user-name{
+    margin-top: 26px;
 }
 </style> 

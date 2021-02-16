@@ -5,7 +5,10 @@
             <input class="login-input" type="email" required  placeholder=""  v-model="user.email">
             <label class="login-lable" for="password">Password</label>
             <input class="login-input" type="password"  required placeholder=""  v-model="user.password">
-            <button class="login-btn" @click="submitLogin">Login </button>
+            <div class="btn-grupp">
+              <button class="login-btn" @click="submitLogin">Login </button>
+              <button class="login-btn" @click="registerMig">Register</button>
+            </div>
 
         </div>
   
@@ -33,10 +36,18 @@ export default {
      async submitLogin(){
       //  console.log( this.$store.dispatch('loginUser',this.user))
       console.log(this.user)
-      this.$store.dispatch('loginUser',this.user);
-      this.$router.push('/profile')
-      // localStorage.setItem('token',)
+      if(this.user.email!="" && this.user.password !=""){
+         this.$store.dispatch('loginUser',this.user);
+        this.$router.push('/profile')
+      }
+      else{
+        alert('enter your email and password');
+      }
+     
       
+    },
+     registerMig(){
+      this.$router.push('/Register')
     }
    
   }
@@ -97,9 +108,16 @@ export default {
   color: white;
   border-radius: 0.25rem;
   height: 45px;
-  width: 81%;
+  width: 21%;
   margin-top: 0.5rem;
   cursor: pointer;
 
+}
+.btn-grupp{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  margin-top: 4px;
+  gap: 8px;
 }
 </style>

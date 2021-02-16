@@ -10,11 +10,10 @@
                 </div>
                <div id="item-info">
                     <div id="title">
-                     
                       <h3>{{product.title}}</h3>
                     </div>
                     <div id="shortDesc">
-                  <p>  {{product.shortDesc}}</p>
+                     <p>{{product.shortDesc}}</p>
                     </div>
                     <div id="serial">
                     
@@ -82,7 +81,7 @@ export default {
     align-items: center;
     background-color:#009999;
     width: 250px;
-    height: 250px;
+    height: 255px;
     box-shadow: 7px 2px 8px rgba(0, 0, 0, 0.33);
       overflow-y: auto;
       cursor: pointer;
@@ -109,15 +108,16 @@ export default {
         }
     }
     #product-list {
-        height: 180px;/* or any height you want */
+        height: 190px;/* or any height you want */
       
     
     #product-item {
         display: flex;
         align-items: flex-start;
-        margin-right: 8rem;
+        margin-right: 7rem;
         margin-top: 1rem;
         width: 100px;
+        gap: 2px;
         #imgFile {
             margin-right: 8px;
             width: 25px;
@@ -135,6 +135,7 @@ export default {
         display: flex;
         flex-direction: column;
         position: absolute;
+        justify-content: space-around;
        // margin-left: 0.5rem;
         #title {
             //margin-left: 0.5rem;

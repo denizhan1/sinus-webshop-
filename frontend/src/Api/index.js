@@ -68,6 +68,7 @@ export async function submitOrder(Order,token='') {
 }
 // get order api
 export async function getUserOrders(token){
+    console.log(token)
     let result = await fetch('http://localhost:5000/api/orders/',
         {
             method: 'GET',

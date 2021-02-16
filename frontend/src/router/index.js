@@ -14,7 +14,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/register',
     name: 'Register',
     component: Register
   },
@@ -44,7 +44,7 @@ const routes = [
     component: OrderDone
   },
   {
-    path: '/Products',
+    path: '/',
     name: 'Products',
     component: Products
   },
