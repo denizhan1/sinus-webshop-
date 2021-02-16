@@ -6,7 +6,7 @@
                        <ProductView :product="selectedProduct"/>
                                   
                                 
-                     </div>
+       </div>
             <main class="main-container">
                     <div class="list-items" v-for="product in getListItems" :key="product.id"   @click="openProduct(product)">
                                 <div class="sub-header">

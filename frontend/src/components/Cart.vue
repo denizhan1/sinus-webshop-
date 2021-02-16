@@ -59,7 +59,6 @@ export default {
   methods:{
       sendToOrder(){
 
-
         this.$router.push('/MakeOrder')
       }
   }

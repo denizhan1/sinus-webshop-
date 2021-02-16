@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <div id="login-inputs" >
+        <form id="login-inputs" >
             <label class="login-lable" for="userName"  >Email</label>
             <input class="login-input" type="email" required  placeholder=""  v-model="user.email">
             <label class="login-lable" for="password">Password</label>
@@ -10,7 +10,7 @@
               <button class="login-btn" @click="registerMig">Register</button>
             </div>
 
-        </div>
+        </form>
   
 
     </div>
@@ -40,9 +40,9 @@ export default {
          this.$store.dispatch('loginUser',this.user);
         this.$router.push('/profile')
       }
-      else{
-        alert('enter your email and password');
-      }
+      // else{
+      //   alert('enter your email and password');
+      // }
      
       
     },
