@@ -1,41 +1,23 @@
 
 <template>
     <div class="cart">
-        <div id="product-list" v-for="(product,index) in cartItems"  :key="index">
-            <div id="product-item" >
-                <div id="imgFile">
-                  
-                <img :src="require(`@/assets/${product.imgFile}`)">
-                   
-                </div>
-               <div id="item-info">
-                    <div id="title">
-                      <h3>{{product.title}}</h3>
-                    </div>
-                    <div id="shortDesc">
-                     <p>{{product.shortDesc}}</p>
-                    </div>
-                    <div id="serial">
-                    
-                    <p> {{product.serial}}</p>
-                    </div>
-                </div>
-                <div class="price"  id="price">
-                    <p class="price">
-                         {{product.price}}
-                   </p>
-                </div>
-            </div>
+        <div class="product-list" v-for="(product,index) in cartItems"  :key="index">
+                 <div class="item-info" :key="index" @click="removeFromCart(index)">
+                <img class="imgFile" :src="require(`@/assets/${product.imgFile}`)">
+              
+                    <h3 class="title">{{product.title}}</h3>
+                    <p class="shortDesc">  {{product.shortDesc}}</p>
+                   <!-- <p class="serial"> {{product.serial}}</p>-->
+                    <p class="price">  {{product.price}}</p>
+                 </div>
+           
         </div>
-        <hr class="line">
         <span class="total-price">
             <p class="total-lable">TOTAL</p>
             <p class="sek-lable"><strong >{{ $store.getters.getTotalCartPrice}}</strong></p>
         </span>
-        <div class="btn" id="btn" @click="sendToOrder">
-           <a href="@/views/MakeOrder"> <img class="btn-icon" src="@/assets/icon-bag-white.svg"></a>
-            Buy
-        </div>
+          <div> <a  @click="sendToOrder" class="btn" > <img class="btn-icon" src="@/assets/icon-bag-white.svg"> Buy</a></div>
+            
     </div>
 </template>
 <script>
@@ -59,15 +41,19 @@ export default {
   methods:{
       sendToOrder(){
 
+
         this.$router.push('/MakeOrder')
-      }
+      },
+      removeFromCart(index){
+            this.$store.commit('removeFromCart', index);
+        },
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .cart {
-    border: 2px solid burlywood;
+    border: 2px solid gray;
     margin-top: 5rem;
     position: absolute;
     top: 0;
@@ -77,123 +63,124 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color:#009999;
-    width: 250px;
-    height: 255px;
-    box-shadow: 7px 2px 8px rgba(0, 0, 0, 0.33);
-      overflow-y: auto;
-      cursor: pointer;
-
-    .btn {
-        display: flex;
-        flex-direction: row;
-        background-color: black;
-        align-items: center;
-        justify-items: center;
-        border: none;
-        color: white;
-        border-radius: 0.25rem;
-        height: 45px;
-        width: 81%;
-        margin-top: 0.5rem;
-        cursor: pointer;
-        margin-bottom: 0.5rem;
-        .btn-icon{
-            margin-right: 5px;
-            width: 20px;
-            height: 20px;
-            margin-left: 2rem;
-        }
-    }
-    #product-list {
-        height: 190px;/* or any height you want */
-      
+    align-items: flex-start;
+    background-color: lightgray;
+    width: 280px;
+    height: auto;
+    max-height: 800px;
+    min-height: 150px;
+    overflow-y:scroll;
     
-    #product-item {
-        display: flex;
-        align-items: flex-start;
-        margin-right: 7rem;
-        margin-top: 1rem;
-        width: 100px;
-        gap: 2px;
-        #imgFile {
-            margin-right: 8px;
-            width: 25px;
-            height: 30px;
-            border: 4px;
-            img {
-                
-                width: 30px;
-                height: 30px;
-            }
-        }
-    }
-    #item-info {
-       // align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        justify-content: space-around;
-       // margin-left: 0.5rem;
-        #title {
-            //margin-left: 0.5rem;
-            font-size: 15px;
-            margin-left: 10px;
-        }
-        #shortDesc {
-            //margin-left: 0.5rem;
-            font-size: 10px;
-            margin-top: 5px;
-            margin-left: 35px;
-        }
-        #serial {
-            margin-top: 5px;
-            font-size: 8px;
-            margin-left: 37px;
-        }
-        #price{
-            width:40px;
+    
 
-        }
-    }
+  
+    
+    .product-list {
+        display: flex;
+        flex-direction:  row;
+        align-items:flex-start;
+        justify-content: flex-start;
+        width: 250px;
+        height: 45px;
+        margin-bottom: 2rem;
+      
        
     }
-     }
+     .imgFile {
+        // align-items: center ;
+         //justify-content: flex-start;
+         //display: flex;
+         float: left;
+         //margin-top: 1rem;
+            width: 50px;
+            height: 40px;
+            border: 4px;
+            img {
+                float: left;
+                width: 45px;
+                height: 40px;
+            }
+        }
+    .item-info {
+        display: flex;
+        flex-direction: row;
+        //align-items: flex-start;
+        //margin-left: 2rem;
+        float: right;
+
+        }
+        .title {
+            margin-left: 1rem;
+            font-size: 11px;
+            align-items: flex-start;
+            height: 20px;
+            margin-top: 1rem;
+
+        }
+        .shortDesc {
+            //display: flex;
+            //flex-direction: column;
+            font-size: 9px;
+            font-weight: bold;
+            margin-top: 2rem;
+            float: left;
+//margin-right: 4rem;
+            
+        }
+       /* .serial {
+            display: flex;
+            //margin-top: 5px;
+            font-size: 7px;
+           // margin-left: 37px;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }*/
+        .price{
+            display: flex;
+            width:10px;
+            align-items: flex-end;
+            justify-content: flex-end;
+            font-size: 12px;
+            margin-left: 5rem;
+            //margin-top: 2rem;
+            //position: relative
+        }
+  
+    .total-price{
+        height: 20px;
+        display: flex;
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 0.5rem;
      .price{
          display: flex;
          align-items: flex-end;
          width: 20px;
          height: 10px;
-            //margin-left: 4rem;
-            margin-top: 1.4rem;
-            margin-left: 70px;
+         float: right;
      }
-   
-    .line{
-        width: 100%;
-        height: 3px;
-        border: none;
-        color: black;
-        background-color: black;
-    }
-    .total-price{
-        font-size: 14px;
-        display: inline;
-       //flex-direction: row;
-        font-weight: bold;
-    }
+     }    
     .total-lable{
         color: black;
-        //display: flex;
-        //align-items: flex-start;
-        float: left;
-        margin-right: 5rem;
     }
      .sek-lable{
-         margin-left: 3rem;
-        float: right;
-        
+         margin-left: 10rem;
     }
-
+  
+}
+.btn {
+      cursor: pointer;  
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+        color: white;
+        height: 40px;
+        width: 250px;
+       
+        .btn-icon{
+            margin-left: 4.5rem;
+            padding-right: 5px;
+            
+        }
+    }
 </style>
