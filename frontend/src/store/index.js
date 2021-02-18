@@ -117,7 +117,7 @@ export default new Vuex.Store({
 
        return sum
       }, 
-      // displays selected items to the cart
+      // displays total selected items to the cart
       totalCartItemCount: state => {
         return state.cartItems.length
       },
