@@ -7,6 +7,7 @@ Vue.use(Vuex)
 
 
 export default new Vuex.Store({
+  // States-stores data that will be used throughout the application
   state: {
     productList:[],
     cartItems:[],
@@ -17,6 +18,7 @@ export default new Vuex.Store({
     loggedInUser:false
     
   },
+  // Mutations-methods for modifying state
   mutations: {
       loadProducts(state,data){
           state.productList=data
@@ -24,7 +26,7 @@ export default new Vuex.Store({
       addItem(state,item){
         state.cartItems.push(item);
       },
-      //has to be changed later
+     
       loginAuthenticated(state,user){
         state.currentUser=user.user;
         state.loggedInUser=true;
@@ -34,47 +36,46 @@ export default new Vuex.Store({
         state.orders.push(order);
 
       },
+      //displays all user orders
       setUserOrder(state,payload){
         state.userOrderedList=payload;
         for (let index = 0; index < payload.length; index++) {
-          let temp = [] 
+          const data = [] 
           
-          payload[index].items.forEach(e => {
-              const product = state.productList.find(f => f._id == e)
-              temp.push(product)
+          payload[index].items.forEach(element => {
+              const product = state.productList.find(d => d._id == element)
+              data.push(product)
           })
-          payload[index].items = temp
+          payload[index].items = data
         }
   
         // state.userOrderList = payload
         console.log(payload)
       },
       
-        
-        
       
-
-     
   },
+  // Actions-  asynchronous operations that commit mutations
   actions: {
       async getProducts(context,payload){
          const res= await Api.getAllProducts(payload)
           context.commit('loadProducts',res)
       },
+      // adds item to the cart
       addItem(context,item){
         context.commit("addItem",item);
       },
+      //login a user
       async loginUser(context,payload){
         const res=await Api.userLogin(payload)
         
         context.commit('loginAuthenticated',res)
 
       },
-     
+     // create order
       async postOrder(context){
         console.log(this.state.token)
         console.log(this.state.cartItems)
-
         let result= await Api.submitOrder(this.state.cartItems,this.state.token)
          context.commit('addOrder',result)
         
@@ -87,9 +88,9 @@ export default new Vuex.Store({
         console.log(res)
 
       },
-      
+      // register a user
       async registerToSinus(_,user){
-        
+        // used axios that installed to the project
         await axios.post('http://localhost:5000/api/register/',user)
         .then(res=>{
           console.log(res)
@@ -98,9 +99,8 @@ export default new Vuex.Store({
         })
       }
     
-
-     
   },
+  // Getters-computed properties based off of data in the store
   getters:{
       getListItems: state => {
           return state.productList
@@ -108,6 +108,7 @@ export default new Vuex.Store({
       getCartItems: state => {
           return state.cart
       },
+      // total price for all added items to the cart
       getTotalCartPrice: state => {
             let sum = 0;
             state.cartItems.map(item => {
@@ -116,6 +117,7 @@ export default new Vuex.Store({
 
        return sum
       }, 
+      // displays selected items to the cart
       totalCartItemCount: state => {
         return state.cartItems.length
       },

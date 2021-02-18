@@ -55,7 +55,9 @@ import Nav from '../components/Nav.vue'
 export default {
   components: { Nav },
     name: 'Register',
+     // datas that binds with the input fields
       data:()=>({
+       
         user:{
             name:'',
             email:'',
@@ -71,10 +73,12 @@ export default {
           }
         } 
   }),
+  // registers the user to database
       methods:{ 
        async  sendRegistration()
        {
          await this.$store.dispatch('registerToSinus',this.user)
+         window.location.reload();
         }
       }
 }

@@ -1,11 +1,12 @@
-// get product api
+
+// loads all products from the database 
 export async function getAllProducts()
 {
     const req= await fetch('http://localhost:5000/api/products/')
    const data= await req.json()
     return data
 }
-// user login api
+// sends user email and password and authenticated user can login
 export async function userLogin(user)
 {
     let result= await fetch('http://localhost:5000/api/auth/',
@@ -22,7 +23,7 @@ export async function userLogin(user)
     return data;
 }
 
-// register user api
+// registers a new user and sends  to user databse
 export async function userToRegisterd(user)
 {
     let result= await fetch('http://localhost:5000/api/register/',
@@ -38,7 +39,7 @@ export async function userToRegisterd(user)
     console.log(data)
 
 }
-// submit order api
+// submit order to order database and at the same time order id is added to user database
 export async function submitOrder(Order,token='') {
      let a = [];
     Order.forEach(element => {
@@ -65,7 +66,7 @@ export async function submitOrder(Order,token='') {
         console.log(y);
       
 }
-// get order api
+// returns  all orders ordered by registered in user
 export async function getUserOrders(token){
     console.log('getuserorder', token)
     let result = await fetch('http://localhost:5000/api/orders/',

@@ -23,7 +23,7 @@
         <p>Description: {{item.shortDesc}}</p>
         <p>Price: {{item.price}}</p>
         <p>Status: {{order.status}}</p>
-        <p>Order date: {{orderDate(order.timeStamp)}}</p>
+        <p>Ordered date: {{orderDate(order.timeStamp)}}</p>
         <hr>
         </li>
       </ul>         
@@ -37,6 +37,7 @@ import Nav from '@/components/Nav.vue'
 export default {
     name:'Profile',
      components:{Nav},
+     
     computed:{
       user(){
         return this.$store.state.currentUser
@@ -53,15 +54,16 @@ export default {
       this.$store.dispatch('getProducts')
        this.$store.dispatch('showUserOrder')
     },
-      mounted(){ 
-      this.$store.dispatch('showUserOrder')
-    },
+    //   mounted(){ 
+    //   this.$store.dispatch('showUserOrder')
+    // },
 
     methods:{
      orderDate(){
        const date = new Date()
        return date.toDateString() 
      },
+     // refreshes and redirect to the register page
      logout(){
         window.location.replace('/')
       }
@@ -76,6 +78,7 @@ export default {
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
+ 
 }
 
 .list{
