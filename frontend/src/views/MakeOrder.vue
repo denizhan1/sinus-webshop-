@@ -133,8 +133,8 @@ export default {
     methods:{
         async sendOrder(){
             await this.$store.dispatch('postOrder',this.user);
-            window.location.reload();
              this.$router.push('/orderDone')
+               window.location.reload();
         }
     }
   

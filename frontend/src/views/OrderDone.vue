@@ -15,6 +15,7 @@ import Nav from '../components/Nav.vue'
 export default {
   components: { Nav },
     name: 'OrderDone',
+   
 }
 </script>
 <style lang="scss" scoped>
