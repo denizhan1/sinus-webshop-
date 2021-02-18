@@ -36,8 +36,23 @@ export default new Vuex.Store({
       },
       setUserOrder(state,payload){
         state.userOrderedList=payload;
+        for (let index = 0; index < payload.length; index++) {
+          let temp = [] 
+          
+          payload[index].items.forEach(e => {
+              const product = state.productList.find(f => f._id == e)
+              temp.push(product)
+          })
+          payload[index].items = temp
+        }
+  
+        // state.userOrderList = payload
+        console.log(payload)
+      },
+      
         
-      }
+        
+      
 
      
   },
@@ -66,9 +81,8 @@ export default new Vuex.Store({
       },
       // user order history
       async showUserOrder(context){
-
-        const res= await Api.getUserOrders(this.state.token)
         console.log(this.state.token)
+        const res= await Api.getUserOrders(this.state.token)
         context.commit('setUserOrder',res)
         console.log(res)
 

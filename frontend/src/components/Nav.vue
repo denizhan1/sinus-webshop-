@@ -1,33 +1,25 @@
 <template>
 <div id="app" class="Nav">
     <nav class="navigation">
-
         <div class="nav-bar">
              <img class="logo" src="~@/assets/sinus-logo.svg">
             <div class="right-side">
-                <router-link style="text-decoration:none;" class="products" to="/">Products</router-link>
-                <!-- <router-link style="text-decoration:none;" class="register" to="./Register">Register</router-link> -->
-                
+                <router-link style="text-decoration:none;" class="products" to="/products">Products</router-link>
                 <div v-if="!userIsLoggedIn">
                      <button   @click="showProfile" class="profile-btn"><img class="profile-img" src="~@/assets/icon-user-black.svg"></button>
                 </div>
                 <div v-else>
                     <p  @click="goToProfile"  class="user-name">{{this.userIsLoggedIn.name}}</p>
                 </div>
-               
                 <Login v-if="showP"/>
-               
                <div class="icon">
                     <button @click="showCart" class="cart-btn"><img class="cart-img" src="~@/assets/icon-bag-white.svg"></button>
                     <p class="order-num">{{orderedItemsInCart}}</p>
                 </div>
                   <Cart v-if="showC"/>
             </div> 
-
             </div>
-        
     </nav>
-
  </div>
 </template>
 
@@ -38,9 +30,7 @@ export default {
   components: { Cart, Login },
     name: 'Nav',
     data() { return{
-        //showC = showCart
         showC: false,
-        //showP = showProfile
         showP: false
         }
     },
@@ -56,22 +46,17 @@ export default {
         showProfile() {
             this.showP = !this.showP
         },
-
         showCart(){ 
             this.showC = !this.showC
         },
-
          goToProfile(){
-        this.$router.push('/Profile')
+        this.$router.push('/profile')
     }
-
     },
-   
 }
 </script>
 
 <style lang="scss" scoped>
-
 img {
     height: 100px;
     width: 100px;
@@ -93,7 +78,6 @@ img {
     :hover{
         color: darkgrey;
     }
-    
     display: flex;
     text-decoration-line: none;
     margin: 10px;
@@ -148,8 +132,6 @@ img {
 .order-num{
  width: 22px;
     height: 22px;
- 
- 
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.12);
     border-radius: 50%;
     margin-right: 10px;

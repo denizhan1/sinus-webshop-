@@ -14,7 +14,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/register',
+    path: '/',
     name: 'Register',
     component: Register
   },
@@ -44,17 +44,16 @@ const routes = [
     component: OrderDone
   },
   {
-    path: '/',
+    path: '/products',
     name: 'Products',
     component: Products
   },
 
   {
-    path: '/Profile',
+    path: '/profile',
     name: 'Profile',
     component: Profile
   },
-  
 ]
 
 const router = new VueRouter({

@@ -46,7 +46,6 @@ export async function submitOrder(Order,token='') {
     });
   let sendOrder=
     {
-        
         timeStamp: Date.now(), 
         status: 'inProcess',
         orderValue: 999,
@@ -68,7 +67,7 @@ export async function submitOrder(Order,token='') {
 }
 // get order api
 export async function getUserOrders(token){
-    console.log(token)
+    console.log('getuserorder', token)
     let result = await fetch('http://localhost:5000/api/orders/',
         {
             method: 'GET',
@@ -77,10 +76,8 @@ export async function getUserOrders(token){
                 'Content-Type': 'application/json',
                 'Authorization': token
             }
-
         });
     let data = await result.json()
     return data
-
 }
     

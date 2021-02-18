@@ -1,5 +1,4 @@
 <template>
-  
     <main id="register" class="grid-container">
       <Nav />
         <section class="hero col-6">
@@ -44,7 +43,6 @@
                 City
                 <input type="text" v-model="user.adress.city" />
             </label> 
-            
             <footer class="col-4">
                 <a type="button" href="#" class="btn" @click=" sendRegistration">Register!</a>
             </footer>
@@ -57,7 +55,6 @@ import Nav from '../components/Nav.vue'
 export default {
   components: { Nav },
     name: 'Register',
-
       data:()=>({
         user:{
             name:'',
@@ -72,27 +69,20 @@ export default {
             validUntil:'',
             cvv:''
           }
-
         } 
   }),
-      
-      methods:{
-        
+      methods:{ 
        async  sendRegistration()
        {
          await this.$store.dispatch('registerToSinus',this.user)
-        //  this.$router.push('/products')
-
         }
       }
- 
 }
 </script>
 <style lang="scss">
 #register {
     padding: 0 0 3rem 0;
     cursor: pointer;
-
     .hero {
         background: url('../assets/skate-hero-1.jpg');
         background-size: cover;
@@ -111,12 +101,8 @@ export default {
     }
 }
 .grid-container{
-  
-  margin-left: 20rem;
-  padding-left: 20rem;
   grid-column: auto/span 6;
-  width: 80rem;
-  
+  width: 100%;
 }
 .reg-side{
   width: 50%;
@@ -127,7 +113,6 @@ export default {
   margin-left: 5rem;
   margin-top: 2rem;
   text-align: left;
-  
 }
 .text-side {
  
@@ -137,7 +122,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content:center;
- 
   float: left;
   text-align: left;
 }
@@ -156,12 +140,10 @@ form label input, form label textarea {
     border: 1px solid rgba(0,0,0,.6);
     font-size: 1.2rem;
     resize: none;
-  
     appearance: none;
     background: none;
     padding: .5rem;
     width: 100%;
-   
     box-sizing: border-box;
     border-radius: .25rem;
  }
@@ -178,13 +160,9 @@ form label input, form label textarea {
     float: left;
     margin-top: 1rem;
 }
-
 label{
   font-size: 0.8rem;
   color: rgba(99, 98, 98, 0.6);  
   margin-top: 4px;
 }
-
-
-
 </style>

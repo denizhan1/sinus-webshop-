@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <form id="login-inputs" >
+        <div id="login-inputs" >
             <label class="login-lable" for="userName"  >Email</label>
             <input class="login-input" type="email" required  placeholder=""  v-model="user.email">
             <label class="login-lable" for="password">Password</label>
@@ -9,10 +9,7 @@
               <button class="login-btn" @click="submitLogin">Login </button>
               <button class="login-btn" @click="registerMig">Register</button>
             </div>
-
-        </form>
-  
-
+        </div>
     </div>
 </template>
 
@@ -26,35 +23,24 @@ export default {
       password:''
     }
   }),
-  // computed:{
-  //    signedIn() {
-  //     return this.$store.state.loggedInUser;
-  //   },
-  // },
- 
   methods:{
-     async submitLogin(){
-      //  console.log( this.$store.dispatch('loginUser',this.user))
+     submitLogin(){
       console.log(this.user)
       if(this.user.email!="" && this.user.password !=""){
-         this.$store.dispatch('loginUser',this.user);
-        this.$router.push('/profile')
+           this.$store.dispatch('loginUser',this.user);
+           this.$router.push('/products')
       }
-      // else{
-      //   alert('enter your email and password');
-      // }
-     
-      
+        else{
+        alert('enter your email and password');
+      }
+
     },
      registerMig(){
-      this.$router.push('/Register')
+      this.$router.push('/')
     }
-   
   }
-
 }
 </script>
-
 
 <style lang="scss" scoped>
 .login {
@@ -67,22 +53,14 @@ export default {
     right: 0;
     display: flex;
     flex-direction: column;
-   // justify-content: center;
-   // align-items: center;
     background-color: lightgray;
     width: 300px;
     height: 210px;
     box-shadow: 7px 2px 8px rgba(0, 0, 0, 0.33);
     border-radius: 1rem;
    }
-   // #login-inputs {
-    //    height: 180px;/* or any height you want */
-     //   overflow-y: auto;
-    //}
   .login-lable {
     display: flex;
-    //flex-direction: column;
-   // float: left;
     margin-left: 1.7rem;
     font-size: 13px;
    }
