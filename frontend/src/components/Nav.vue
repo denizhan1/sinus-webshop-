@@ -30,8 +30,8 @@ export default {
   components: { Cart, Login },
     name: 'Nav',
     data() { return{
-        showC: false,
-        showP: false
+        showC: false, // showC is show cart
+        showP: false // showP is show user login profile
         }
     },
     computed:{
@@ -40,13 +40,19 @@ export default {
         },
         userIsLoggedIn(){
             return this.$store.state.currentUser
-        }
+        },
   },
     methods: {
         showProfile() {
+            if (this.showC) {
+                this.showC=false;
+            }
             this.showP = !this.showP
         },
         showCart(){ 
+            if (this.showP) {
+                this.showP=false;
+            }
             this.showC = !this.showC
         },
          goToProfile(){

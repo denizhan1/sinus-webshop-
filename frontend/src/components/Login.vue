@@ -23,10 +23,17 @@ export default {
       password:''
     }
   }),
+  computed:{
+    isLoggedInUser(){
+       return this.$store.state.loggedInUser
+    }
+   
+  },
   methods:{
      submitLogin(){
       console.log(this.user)
-      if(this.user.email!="" && this.user.password !=""){
+      //checks if email and password are inserted
+      if(this.user.email!="" && this.user.password !="" || !this.isLoggedInUser){
            this.$store.dispatch('loginUser',this.user);
            this.$router.push('/products')
       }
